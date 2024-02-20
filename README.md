@@ -1,7 +1,15 @@
 # Gestor de Contraseñas SCRUM
 
+## Integrantes
+• David Averos
+• Ricardo Becerra
+• Nardy Cachipuendo
+• Gary Campaña
+• Kevin Cano
+• Rafael Castro
+
 ## Descripción del Proyecto
-Este proyecto consiste en desarrollar un gestor de contraseñas utilizando SCRUM como metodología de desarrollo. El gestor de contraseñas permitirá a los usuarios almacenar y gestionar de forma segura sus contraseñas para diferentes servicios en línea.
+Este proyecto consiste en desarrollar un gestor de contraseñas utilizando SCRUM como metodología de desarrollo SCRUM. El gestor de contraseñas permitirá a los usuarios almacenar y gestionar de forma segura sus contraseñas para diferentes servicios en línea, ademas de estar implementado en Docker
 
 ## Instalación
 1. Clona este repositorio en tu máquina local:
@@ -23,12 +31,6 @@ Si deseas contribuir al proyecto, sigue estos pasos:
 4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`).
 5. Crea un nuevo Pull Request.
 
-## Licencia
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
-## Contacto
-Para cualquier pregunta o sugerencia, no dudes en contactarme en [tuemail@example.com](mailto:tuemail@example.com).
 
 ## Enlaces
 - [Proyecto en GitHub](https://github.com/6DUDU9/Password-Manage-SCRUM)
-- Otros enlaces relevantes...
