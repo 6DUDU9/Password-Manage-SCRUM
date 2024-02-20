@@ -1,0 +1,1 @@
+Iria ya deployado el proyecto con docker y como implementarlo
