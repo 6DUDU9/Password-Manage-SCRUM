@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  --bg-fondo: #fffefb;
+  --color-fuente: #1d1c1c;
+  --color-tarjetas: #d4eaf7;  
+  font-family: 'Roboto', sans-serif;
+}
