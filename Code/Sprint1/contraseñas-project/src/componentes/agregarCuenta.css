@@ -1,42 +1,17 @@
 .agregar-cuenta {
+  background-color: var(--color-tarjetas);
   padding: 1rem;
   margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 10px;
+  border: 1px solid var(--color-borde);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.nombre-agregar,
-.usuario-agregar,
-.contraseña-agregar {
-  display: flex;
-  align-items: center;
-}
-
-.txt-sitio-agregar,
-.txt-usuario-agregar,
-.txt-contraseña-agregar {
-  padding: .4rem;
-  margin: .4rem 1rem;
-  background: #b2b2b2;
-  border: none;
-  border-radius: 5px;
-}
-
-.botones {
-  margin: .5rem 0 0 0;
-}
-
-.btn-generar-contraseña {
-  background: #0b5ed7;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: .4rem 1rem;
-  margin: 0 .5rem;
-  cursor: pointer;
-}
-
-.btn-generar-contraseña:hover {
-  background: #0a4dbf;
+.agregar-cuenta input {
+  padding: .5rem;
+  color: var(--color-texto);
 }
