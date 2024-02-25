@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import archivo from './cuentas/cuentas.json';
 import { MdDelete } from "react-icons/md";
-import { MdEdit } from "react-icons/md";
+import { FiEdit2 } from "react-icons/fi";
 import AgregarCuenta from './componentes/agregarCuenta';
 import CryptoJS from 'crypto-js';
 import Swal from 'sweetalert2';
 import NavBar from './componentes/navbar';
+import { CiUser } from "react-icons/ci";
+import { CiLock } from "react-icons/ci";
 
 function App() {
 
@@ -34,7 +36,7 @@ function App() {
 
     const cuentasGuardadas = JSON.parse(localStorage.getItem('cuentas')) || archivo;
     const cuentasEncriptadas = cuentasGuardadas.map(cuenta => {
-      
+
       const contraseña = CryptoJS.AES.encrypt(cuenta.contraseña, contraseñaGuardada || tempContraseña).toString();
       return { ...cuenta, contraseña };
     });
@@ -142,36 +144,73 @@ function App() {
 
   return (
     <div className='App'>
+      <h1><strong>Password Manager</strong></h1>
       <NavBar desencriptarCuentas={desencriptarCuentas} setMostrarAgregarCuenta={setMostrarAgregarCuenta} buscarCuenta={buscarCuenta} contraseñasDesemcriptadas={contraseñasDesemcriptadas} />
       <div className='contenedor-contraseñas'>
+        {mostrarAgregarCuenta && <AgregarCuenta onAgregar={agregarCuenta} onCancelar={() => setMostrarAgregarCuenta(false)} />}
         <ul className='lista-cuentas'>
           {cuentas.map((cuenta, index) => (
             <li key={index} >
-              <p></p>
-
-              <p className='iconos'>
-                <MdEdit className='icon-update' onClick={() => editarCuenta(cuenta.id)} />
-                <MdDelete className='icon-delete' onClick={() => eliminarCuenta(cuenta.id)} />
-              </p>
-
-              <strong>Sition Web: </strong>
-              {cuenta.editando ? <input type='text' name="sitioWeb" defaultValue={cuenta.sitioWeb} /> : cuenta.sitioWeb}
-              <strong>Usuario: </strong>
-              {cuenta.editando ? <input type='text' name="usuario" defaultValue={cuenta.usuario} /> : cuenta.usuario}
-              <strong>Contraseña: </strong>
-              {cuenta.editando ? <input type='text' name="contraseña" defaultValue={cuenta.contraseña} /> : cuenta.contraseña}
-
-              {cuenta.editando && <button onClick={() => editarCuenta(cuenta.id, true)}>Cancelar</button>}
+              <div className='nombre-cuenta'>
+                <div>
+                  <strong>Nombre: </strong>
+                  {cuenta.editando ? <input type='text' name="sitioWeb" defaultValue={cuenta.sitioWeb} className='txt-sitio-edit' /> : cuenta.sitioWeb}
+                </div>
+                <div className='iconos-acciones'>
+                  <FiEdit2
+                    className='icon-update'
+                    title='Debe revelar las contraseñas para poder descargar las cuentas'
+                    onClick={() => {
+                      if (contraseñasDesemcriptadas) {
+                        editarCuenta(cuenta.id);
+                      } else {
+                        Swal.fire('Revelar las contraseñas', 'Debe revelar las contraseñas para poder editar las cuentas', 'error');
+                      }
+                    }}
+                  />
+                  <MdDelete className='icon-delete' onClick={() => eliminarCuenta(cuenta.id)} />
+                </div>
+              </div>
+              <div className='usuario-cuenta'>
+                <div className='div-icono-usuario'>
+                  <CiUser />
+                </div>
+                <div className='titulo-usuario'>
+                  <strong>Nombre de usuario </strong>
+                  {cuenta.editando ? <input type='text' name="usuario" defaultValue={cuenta.usuario} className='txt-usuario-edit' /> : cuenta.usuario}
+                </div>
+              </div>
+              <div className='contraseña-cuenta'>
+                <div className='div-icono-contraseña'>
+                  <CiLock />
+                </div>
+                <div className='titulo-contraseña'>
+                  <strong>Contraseña </strong>
+                  {cuenta.editando ? <input type='text' name="contraseña" defaultValue={cuenta.contraseña} className='txt-contraseña-edit' /> : cuenta.contraseña}
+                </div>
+              </div>
+              <div className='div-botones-edit'>
+              {cuenta.editando && <button onClick={() => editarCuenta(cuenta.id, true)} className='btn-cancelar-edit'>Cancelar</button>}
               {cuenta.editando &&
-                <button onClick={() => actualizarCuenta(cuenta.id)}>
+                <button onClick={() => actualizarCuenta(cuenta.id)} className='btn-atualizar-edit'>
                   Actualizar
                 </button>}
+              </div>
             </li>
           ))}
         </ul>
-        {mostrarAgregarCuenta && <AgregarCuenta onAgregar={agregarCuenta} onCancelar={() => setMostrarAgregarCuenta(false)} />}
       </div>
-      <button className='btn-descargar' onClick={descargarContraseñas} >Descagar Contraseñas</button>
+      <button
+        className='btn-descargar'
+        onClick={() => {
+          if (contraseñasDesemcriptadas) {
+            descargarContraseñas();
+          } else {
+            Swal.fire('Revelar las contraseñas', 'Debe revelar las contraseñas para poder descargar las cuentas', 'error');
+          }
+
+        }}
+      >Descargar Contraseñas</button>
     </div>
   );
 }
