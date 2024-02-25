@@ -1,0 +1,62 @@
+.navbar-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+  }
+  
+  .input-container {
+    position: relative;
+    width: fit-content;
+  }
+  
+  .input-container input[type="text"] {
+    padding-left: 30px;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 25px; 
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .txt-buscar {
+    background: #b2b2b2;
+    border: none;
+    border-radius: 5px;
+    padding: .4rem;
+    margin: 0 1rem;
+    width: 500px;
+  }
+  
+  .txt-buscar:focus {
+  }
+  
+  .btn-revelar {
+    background: #0b5ed7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: .4rem 1rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+  }
+  
+  .btn-revelar:hover {
+    background: #0a4dbf;
+  }
+  
+  .btn-agregar {
+    background: #177f4f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: .4rem 1rem;
+    margin: 0 .5rem;
+    cursor: pointer;
+  } 
+  
+  .btn-agregar:hover {
+    background: #146b45;
+  }

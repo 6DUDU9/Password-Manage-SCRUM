@@ -1,27 +1,27 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Navbar from 'react-bootstrap/Navbar';
+import './navbar.css';
+import { CiSearch } from "react-icons/ci";
+import Swal from 'sweetalert2';
 
-function navbar({desencriptarCuentas, setMostrarAgregarCuenta, buscarCuenta, contraseñasDesemcriptadas}) {
+function Navbar({ desencriptarCuentas, setMostrarAgregarCuenta, buscarCuenta, contraseñasDesemcriptadas }) {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
-        <Navbar.Brand href="">Password Encryptor</Navbar.Brand>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Buscar"
-              className="me-2"
-              aria-label="Search"
-              onChange={buscarCuenta}
-            />
-            <Button variant="primary" className="m-1" onClick={desencriptarCuentas} disabled={contraseñasDesemcriptadas}>Revelar Cuenta</Button>
-            <Button variant="success" className="m-1" onClick={() => setMostrarAgregarCuenta(true)}>Agregar Cuenta</Button>
-          </Form>
-      </Container>
-    </Navbar>
+    <nav className="navbar-principal">
+      <div className="input-container">
+        <input type="text" placeholder="Busca un sitio web" className='txt-buscar' onChange={buscarCuenta} />
+        <CiSearch className="search-icon" />
+      </div>
+      <button className='btn-revelar' onClick={desencriptarCuentas} disabled={contraseñasDesemcriptadas}>Revelar Cuenta</button>
+      <button
+        className='btn-agregar'
+        onClick={() => {
+          if (contraseñasDesemcriptadas) {
+            setMostrarAgregarCuenta(true);
+          } else {
+            Swal.fire('Revelar las contraseñas', 'Debe revelar las contraseñas para poder agregar cuentas', 'error');
+          }
+        }}
+      >Agregar Cuenta</button>
+    </nav>
   );
 }
 
-export default navbar;
+export default Navbar;
