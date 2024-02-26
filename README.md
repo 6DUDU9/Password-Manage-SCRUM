@@ -27,13 +27,9 @@ Donde, xxxx es el puerto del host que usted desee mapear
 
 Es importante recalcar que es necesario tener una cuenta de Docker Hub para que se pueda hacer un pull
 
-## Uso
-1. Describe cómo utilizar el gestor de contraseñas en tu proyecto.
-
 ## Estructura del Repositorio
-- **Sprint1**: Contiene los archivos y avances del Sprint 1.
-- **Sprint2**: Contiene los archivos y avances del Sprint 2.
-- Otros Sprints...
+- **Sprint1**: Se realizó el mockup, avances del código y los casos de prueba (HU-01, HU-05).
+- **Sprint2**: Se dockerizó la aplicación y se completó los casos de prueba
 
 ## Contribución
 Si deseas contribuir al proyecto, sigue estos pasos:
