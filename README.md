@@ -14,11 +14,15 @@ Este proyecto consiste en desarrollar un gestor de contraseñas utilizando SCRUM
 ## Instalación
 
 1. DESCARGAR IMAGEN:
+
+```bash
 docker pull ricardocr98/passwordmanagescrum
+```
 
 2. EJECUTAR CONTENEDOR:
+```bash
 docker run -d -p xxxx:80 ricardocr98/passwordmanagescrum
-
+```
 Donde, xxxx es el puerto del host que usted desee mapear
 
 Es importante recalcar que es necesario tener una cuenta de Docker Hub para que se pueda hacer un pull
