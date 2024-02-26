@@ -12,8 +12,16 @@
 Este proyecto consiste en desarrollar un gestor de contraseñas utilizando SCRUM como metodología de desarrollo SCRUM. El gestor de contraseñas permitirá a los usuarios almacenar y gestionar de forma segura sus contraseñas para diferentes servicios en línea, ademas de estar implementado en Docker
 
 ## Instalación
-1. Clona este repositorio en tu máquina local:
 
+1. DESCARGAR IMAGEN:
+docker pull ricardocr98/passwordmanagescrum
+
+2. EJECUTAR CONTENEDOR:
+docker run -d -p xxxx:80 ricardocr98/passwordmanagescrum
+
+Donde, xxxx es el puerto del host que usted desee mapear
+
+Es importante recalcar que es necesario tener una cuenta de Docker Hub para que se pueda hacer un pull
 
 ## Uso
 1. Describe cómo utilizar el gestor de contraseñas en tu proyecto.
